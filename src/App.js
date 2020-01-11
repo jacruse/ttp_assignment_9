@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   addDebit = newDebit => {
-		//this.setState({debits: [...this.state.debits, newDebit]})
+		this.setState({debits: [...this.state.debits, newDebit]})
 		console.log(newDebit)
   }
 
