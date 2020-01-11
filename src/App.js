@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Home from './Home';
-import UserProfile from './UserProfile';
-import Login from './Login';
-import Debits from './Debit.js';
-import Credits from './Credit.js';
+import Home from './components/Home';
+import UserProfile from './components/UserProfile';
+import Login from './components/Login';
+import Debits from './components/Debit.js';
+import Credits from './components/Credit.js';
 import './App.css';
 import axios from 'axios'
 
