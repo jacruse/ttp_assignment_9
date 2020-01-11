@@ -20,7 +20,10 @@ class Debits extends Component {
         this.setState({amount: event.target.value });
     }
 
+
+
     save = (event) => {
+		event.preventDefault()
 	var today = new Date();
 	var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -30,7 +33,9 @@ class Debits extends Component {
 	    amount: this.state.amount,
 	    date: {dateTime}
 	};
-	this.state.debits.push(newSubmission);
+	this.props.addDebit(newSubmission)
+
+	//this.state.debits.push(newSubmission);
     }
 
     form() {

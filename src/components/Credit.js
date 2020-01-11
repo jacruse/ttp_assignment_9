@@ -46,7 +46,7 @@ class Credits extends Component {
 
 		const newCredit = {
 			description: this.state.description,
-			amount: this.state.amount,
+			amount: parseInt(this.state.amount),
 			date: dateTime
 		}
 

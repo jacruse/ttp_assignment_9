@@ -45,6 +45,11 @@ class App extends Component {
     console.log(newCredit)
   }
 
+  addDebit = newDebit => {
+		//this.setState({debits: [...this.state.debits, newDebit]})
+		console.log(newDebit)
+  }
+
   async componentDidMount(){
     const debitEndpoint = 'https://moj-api.herokuapp.com/debits'
     const creditEndpoint = 'https://moj-api.herokuapp.com/credits'
@@ -59,7 +64,7 @@ class App extends Component {
 		<UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}/>
 	);
 	const LoginComponent = () => (<Login user={this.state.currentUser} mockLogin={this.mockLogin} {...this.props}/>);
-	const DebitsComponent = () => (<Debits accountBalance={this.accountBalance()} debits={this.state.debits}/>);
+	const DebitsComponent = () => (<Debits accountBalance={this.accountBalance()} debits={this.state.debits} addDebit={this.addDebit} />);
 	const CreditsComponent = () => (<Credits accountBalance={this.accountBalance()} credits={this.state.credits} addCredit={this.addCredit} />);
 	return (
   		<Router>
