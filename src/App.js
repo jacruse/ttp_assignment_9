@@ -39,6 +39,12 @@ class App extends Component {
     return creditTotal - debitTotal;
   }
 
+
+  addCredit = newCredit => {
+    this.setState({credits: [...this.state.credits, newCredit]})
+    console.log(newCredit)
+  }
+
   async componentDidMount(){
     const debitEndpoint = 'https://moj-api.herokuapp.com/debits'
     const creditEndpoint = 'https://moj-api.herokuapp.com/credits'
@@ -54,15 +60,15 @@ class App extends Component {
 	);
 	const LoginComponent = () => (<Login user={this.state.currentUser} mockLogin={this.mockLogin} {...this.props}/>);
 	const DebitsComponent = () => (<Debits accountBalance={this.accountBalance()} debits={this.state.debits}/>);
-	const CreditsComponent = () => (<Credits accountBalance={this.accountBalance()} credits={this.state.credits}/>);
+	const CreditsComponent = () => (<Credits accountBalance={this.accountBalance()} credits={this.state.credits} addCredit={this.addCredit} />);
 	return (
   		<Router>
     		<div>
       		<Route exact path="/" render={HomeComponent}/>
-		<Route exact path="/UserProfile" render={UserProfileComponent}/>
-		<Route exact path="/login" render={LoginComponent}/>
-		<Route exact path="/Debits" render={DebitsComponent}/>
-		<Route exact path="/Credits" render={CreditsComponent}/>
+		      <Route exact path="/UserProfile" render={UserProfileComponent}/>
+          <Route exact path="/login" render={LoginComponent}/>
+          <Route exact path="/Debits" render={DebitsComponent}/>
+          <Route exact path="/Credits" render={CreditsComponent}/>
     		</div>
   		</Router>
       );
