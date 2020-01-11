@@ -30,8 +30,8 @@ class Debits extends Component {
 	var dateTime = date+time;
 	let newSubmission = {
 	    decription: this.state.description,
-	    amount: this.state.amount,
-	    date: {dateTime}
+	    amount: parseInt(this.state.amount),
+	    date: dateTime
 	};
 	this.props.addDebit(newSubmission)
 
